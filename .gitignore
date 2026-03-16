@@ -1,0 +1,9 @@
+*.zip
+*.class
+*.jar
+*.mp4
+target/
+build/
+.idea/
+.vscode/
+.DS_Store
