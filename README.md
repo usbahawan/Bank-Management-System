@@ -1,61 +1,119 @@
-# Bank Management System
+# 🏦 Bank Management System
 
-A comprehensive desktop application designed to streamline banking operations for Managers, Customer Service Representatives (CSRs), and Account Holders. This project provides a robust interface for managing user accounts, tracking transactions, and maintaining financial security.
+[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://www.oracle.com/java/)
+[![Swing](https://img.shields.io/badge/Java_Swing-007396?style=for-the-badge&logo=java&logoColor=white)](https://en.wikipedia.org/wiki/Swing_(Java))
+[![SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)](https://www.microsoft.com/en-us/sql-server/)
 
-## 🚀 Key Features
-
-### 👤 Manager Portal
-- **CSR Management**: Add new Customer Service Representatives to the system or remove existing ones.
-- **Account Oversight**: View a detailed list of all account holders, including their personal information and current balances.
-
-### 🎧 Customer Service Representative (CSR)
-- **Account Lifecycle**: Create new bank accounts or delete existing ones.
-- **Member Search**: Easily search and view specific account details.
-- **Financial Services**: Process cash deposits for account holders.
-
-### 🏦 Account Holder Portal
-- **Transaction Management**: Securely withdraw funds from the account.
-- **Balance Inquiry**: View current and accurate account balances (interactive hover feature).
-- **History Tracking**: Access a complete log of all past transactions.
-
-## 🛠️ Technology Stack
-- **Language**: [Java](https://www.oracle.com/java/)
-- **Graphical User Interface**: [Java Swing](https://en.wikipedia.org/wiki/Swing_(Java))
-- **Database Management**: [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/)
-- **Connectivity**: [JDBC (Java Database Connectivity)](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/)
-
-## 📂 Project Structure
-- `Code/`: Contains all Java source files (Models, Controllers, and GUI Frames).
-- `Database Tables/`: Visual representations of the database schema (AccountHolder, CSR, Manager, and Transactions).
-- `Project Report.pdf`: Detailed documentation and analysis of the project.
-- `Project Video.mp4`: A demonstration video showing the application in action.
-
-## 🔧 Setup & Installation
-
-### Prerequisites
-1.  **Java JDK 8 or higher** installed on your machine.
-2.  **Microsoft SQL Server** installed and running.
-3.  **SQL Server JDBC Driver** added to your project's build path.
-
-### Database Configuration
-1.  Create a SQL Server database named `BankManagementSystem`.
-2.  Create tables according to the schemas provided in the `Database Tables/` directory.
-3.  Ensure your SQL Server instance allows SQL Server Authentication.
-
-### Source Code Configuration
-1.  Open `ConnectionProvider.java`.
-2.  Update the connection string with your SQL Server credentials:
-    ```java
-    String url = "jdbc:sqlserver://localhost:1433;databaseName=BankManagementSystem;user=YOUR_USERNAME;password=YOUR_PASSWORD;...";
-    ```
-
-### Execution
-1.  Compile all `.java` files in the `bankmanagementsystem` package.
-2.  Run the main class: `BankManagementSystem.java`.
-
-## 👥 Project Team
-- **FA23-BCS-054**
-- **FA23-BCS-058**
+A sophisticated desktop application built for streamlined banking operations. This system provides a robust interface for three distinct user roles: **Managers**, **Customer Service Representatives (CSRs)**, and **Account Holders**, ensuring secure and efficient financial management.
 
 ---
-*Created as part of the Object-Oriented Programming (OOP) course (3rd Semester).*
+
+## 📽️ Project Demonstration
+
+You can find a full walkthrough of the application in action here:
+[Project Video.mp4](file:///d:/Study/3rd%20Semester/OOP/Bank%20Management%20System/FA23-BCS-054%20+%20FA23-BCS-058%20_Bank%20Management%20System_/Semester%20Project/Final%20Project/Project%20Video.mp4)
+
+---
+
+## ✨ Key Features
+
+### 👑 Manager Portal
+*   **CSR Governance**: Full control to register and onboard new Customer Service Representatives or remove them from the system.
+*   **Total Oversight**: Access a comprehensive dashboard viewing all registered account holders, their personal details, and real-time balances.
+
+### 🎧 Customer Service Representative (CSR)
+*   **Account Life-cycle**: Seamlessly create new bank accounts (Supporting both **Saving** and **Current** types) and manage account closures.
+*   **Member Intelligence**: Advanced lookup tools to retrieve detailed profiles of account holders.
+*   **Financial Input**: Process over-the-counter cash deposits for customers.
+
+### 👤 Account Holder Portal
+*   **Secure Transactions**: Perform self-service fund withdrawals with automated balance integrity checks.
+*   **Interactive Balance Inquiry**: A unique "Sneak-Peek" hover feature that reveals the current balance only when intended.
+*   **Financial Transparency**: Access a detailed transaction ledger showing history, amounts, and dates/times.
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+graph TD
+    User((User)) --> Login{Login Screen}
+    Login -- Manager Credentials --> MP[Manager Portal]
+    Login -- CSR Credentials --> CP[CSR Portal]
+    Login -- User Account --> UP[Account Holder Portal]
+
+    MP --> |Register/Delete| CSRD[(CSR Database)]
+    MP --> |View All| AHD[(Account Details)]
+    
+    CP --> |Create/Delete/View| AHD
+    CP --> |Deposit| TD[(Transaction History)]
+    
+    UP --> |Withdraw| TD
+    UP --> |View Balance| AHD
+    UP --> |View History| TD
+
+    subgraph "Database (SQL Server)"
+        CSRD
+        AHD
+        TD
+    end
+```
+
+---
+
+## 🛠️ Technology Stack
+
+*   **Language**: Java (Object-Oriented Architecture)
+*   **UI Framework**: Java Swing & AWT for a responsive desktop experience.
+*   **Database**: Microsoft SQL Server for secure and persistent storage.
+*   **Connectivity**: JDBC (Java Database Connectivity) for high-performance DB interaction.
+*   **Libraries**: `JDateChooser` for user-friendly date selections.
+
+---
+
+## 📂 Project Structure
+
+```text
+├── Code/                      # Java Source Files
+│   ├── Models/                # Data structures (Person, AccountHolder, Transaction)
+│   ├── Controllers/           # Logic handlers (Manager, CSR, AccountHolder)
+│   └── GUI/                   # Swing Frame implementations
+├── Database Tables/           # Schema visual representations
+├── Project Report.pdf         # Technical documentation & Design analysis
+└── Project Video.mp4          # Live demonstration
+```
+
+---
+
+## 🚀 Setup & Installation
+
+### 1. Prerequisites
+*   **JDK 8 or higher**
+*   **Microsoft SQL Server**
+*   **SQL Server JDBC Driver** (`mssql-jdbc`)
+
+### 2. Database Initialization
+1.  Create a new database in SQL Server named `BankManagementSystem`.
+2.  Execute the table creation scripts (refer to schemas in `Database Tables/`).
+3.  Configure your SQL Server instance to allow **Mixed Mode Authentication**.
+
+### 3. Application Configuration
+1.  Navigate to `ConnectionProvider.java`.
+2.  Update the URL with your local server details:
+    ```java
+    String url = "jdbc:sqlserver://localhost:1433;databaseName=BankManagementSystem;user=YOUR_USER;password=YOUR_PASS;";
+    ```
+
+### 4. Running the App
+1.  Open the project in your preferred IDE (VS Code, IntelliJ, or NetBeans).
+2.  Add the JDBC driver to your project libraries.
+3.  Run `LoginScreen.java` to start the application.
+
+---
+
+## 👥 Meet the Team
+
+*   **FA23-BCS-054**
+*   **FA23-BCS-058**
+
+*Developed as a Semester Project for the **Object-Oriented Programming (OOP)** course.*
