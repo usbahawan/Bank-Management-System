@@ -11,7 +11,7 @@ A sophisticated desktop application built for streamlined banking operations. Th
 ## 📽️ Project Demonstration
 
 You can find a full walkthrough of the application in action here:
-[Project Video.mp4](file:///d:/Study/3rd%20Semester/OOP/Bank%20Management%20System/FA23-BCS-054%20+%20FA23-BCS-058%20_Bank%20Management%20System_/Semester%20Project/Final%20Project/Project%20Video.mp4)
+[Project Video.mp4](./FA23-BCS-054%20+%20FA23-BCS-058%20_Bank%20Management%20System_/Semester%20Project/Final%20Project/Project%20Video.mp4)
 
 ---
 
