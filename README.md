@@ -111,9 +111,4 @@ graph TD
 
 ---
 
-## 👥 Meet the Team
 
-*   **FA23-BCS-054**
-*   **FA23-BCS-058**
-
-*Developed as a Semester Project for the **Object-Oriented Programming (OOP)** course.*
